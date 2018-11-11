@@ -3,3 +3,5 @@ jdk:
   - openjdk10
 sudo: false
 script: mvn clean install
+before_install:
+  - chmod +x mvnw
