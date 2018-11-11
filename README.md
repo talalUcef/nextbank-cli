@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/talalUcef/nextbank-cli.svg?branch=master)](https://travis-ci.org/talalUcef/nextbank-cli)
+
+
 # Project spec
 [See the project spec](https://gist.github.com/abachar/d20bdcd07dac589feef8ef21b487648c#file-kata-md)
 
