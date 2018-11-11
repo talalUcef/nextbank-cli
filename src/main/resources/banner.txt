@@ -1,17 +1,15 @@
+                                     ________        _     ___      ______    __
+WELCOME TO                           `MMMMMMMb.     dM.    `MM\     `M'`MM    d'  @
+                               /      MM    `Mb    ,MMb     MMM\     M  MM   d'
+___  __     ____  ____   ___  /M      MM     MM    d'YM.    M\MM\    M  MM  d'
+`MM 6MMb   6MMMMb `MM(   )P' /MMMMM   MM    .M9   ,P `Mb    M \MM\   M  MM d'
+ MMM9 `Mb 6M'  `Mb `MM` ,P    MM      MMMMMMM(    d'  YM.   M  \MM\  M  MMd'
+ MM'   MM MM    MM  `MM,P     MM      MM    `Mb  ,P   `Mb   M   \MM\ M  MMYM.
+ MM    MM MMMMMMMM   `MM.     MM      MM     MM  d'    YM.  M    \MM\M  MM YM.
+ MM    MM MM         d`MM.    MM      MM     MM ,MMMMMMMMb  M     \MMM  MM  YM.
+ MM    MM YM    d9  d' `MM.   YM.  ,  MM    .M9 d'      YM. M      \MM  MM   YM.
+_MM_  _MM_ YMMMM9 _d_  _)MM_   YMMM9 _MMMMMMM9_dM_     _dMM_M_      \M _MM_   YM._
 
-                                                        WELCOME TO
-
-#
-#  b.             8 8 8888888888   `8.`8888.      ,8' 8888888 8888888888 8 888888888o          .8.          b.             8 8 8888     ,88'
-#  888o.          8 8 8888          `8.`8888.    ,8'        8 8888       8 8888    `88.       .888.         888o.          8 8 8888    ,88'
-#  Y88888o.       8 8 8888           `8.`8888.  ,8'         8 8888       8 8888     `88      :88888.        Y88888o.       8 8 8888   ,88'
-#  .`Y888888o.    8 8 8888            `8.`8888.,8'          8 8888       8 8888     ,88     . `88888.       .`Y888888o.    8 8 8888  ,88'
-#  8o. `Y888888o. 8 8 888888888888     `8.`88888'           8 8888       8 8888.   ,88'    .8. `88888.      8o. `Y888888o. 8 8 8888 ,88'
-#  8`Y8o. `Y88888o8 8 8888             .88.`8888.           8 8888       8 8888888888     .8`8. `88888.     8`Y8o. `Y88888o8 8 8888 88'
-#  8   `Y8o. `Y8888 8 8888            .8'`8.`8888.          8 8888       8 8888    `88.  .8' `8. `88888.    8   `Y8o. `Y8888 8 888888<
-#  8      `Y8o. `Y8 8 8888           .8'  `8.`8888.         8 8888       8 8888      88 .8'   `8. `88888.   8      `Y8o. `Y8 8 8888 `Y8.
-#  8         `Y8o.` 8 8888          .8'    `8.`8888.        8 8888       8 8888    ,88'.888888888. `88888.  8         `Y8o.` 8 8888   `Y8.
-#  8            `Yo 8 888888888888 .8'      `8.`8888.       8 8888       8 888888888P .8'       `8. `88888. 8            `Yo 8 8888     `Y8.
 
 Type help to show available commands : connect, deposit, withdraw, check and disconnect
 connect ==> To connect to your account, its syntax is > connect  username  password

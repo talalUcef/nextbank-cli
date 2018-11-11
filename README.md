@@ -18,6 +18,7 @@ To build the project use : `mvnw clean install`
 
 to run the project use : `java -jar target/nextbank-cli-{version}.jar` 
 
+# Use the nexBANK cli
 The system do not provide the functionality of adding new customers for now,
 but it provide a list of customers for test purpose :
 - Guido van Rossum
@@ -32,7 +33,13 @@ but it provide a list of customers for test purpose :
 All customers username and password are first name in lowercase, 
 so for Guido van Rossum, the username is guido and password is guido
 
-# Tips
+To connect with Guido van Rossum account use `connect guido guido`
+To deposit  money into the account use `deposit 500` for example  
+To withdraw money from the account use `withdraw 200` 
+To list account's operations use `check` 
+To disconnect from Guido van Rossum account use `disconnect`
+
+# Encountered problems
 The spring shell project do not integrate very well with spring test, 
 that why for now the project do not have integration and unit tests, 
-they will be added in the future.
+they will be added future releases.
