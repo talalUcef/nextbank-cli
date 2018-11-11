@@ -8,6 +8,7 @@ import com.nextbank.cli.service.AuthenticationService;
 import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.shell.standard.ShellMethodAvailability;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -29,38 +30,33 @@ class AccountCommands {
     }
 
     @ShellMethod("Deposit money into your account")
-    public void deposit(BigDecimal amount) {
+    @ShellMethodAvailability("accountCommandsAvailability")
+    public void deposit(String amount) {
         try {
-            this.accountService.depositIntoCurrentAccount(amount);
+            this.accountService.depositIntoCurrentAccount(new BigDecimal(amount));
             console.write(messages.get("deposit.success"));
+        } catch (NumberFormatException e) {
+            this.console.write(this.messages.get("amount.invalid"));
         } catch (IllegalArgumentException | IllegalStateException e) {
             this.console.write(e.getMessage());
         }
-    }
-
-    Availability depositAvailability() {
-        return this.authenticationService.isConnected() ?
-                Availability.available() :
-                Availability.unavailable(messages.get("customer.not.connected.message"));
     }
 
     @ShellMethod("Withdraw money from your account")
-    public void withdraw(BigDecimal amount) {
+    @ShellMethodAvailability("accountCommandsAvailability")
+    public void withdraw(String amount) {
         try {
-            this.accountService.withdrawFromCurrentAccount(amount);
+            this.accountService.withdrawFromCurrentAccount(new BigDecimal(amount));
             console.write(messages.get("withdraw.success"));
+        } catch (NumberFormatException e) {
+            this.console.write(this.messages.get("amount.invalid"));
         } catch (IllegalArgumentException | IllegalStateException e) {
             this.console.write(e.getMessage());
         }
     }
 
-    Availability withdrawAvailability() {
-        return this.authenticationService.isConnected() ?
-                Availability.available() :
-                Availability.unavailable(messages.get("customer.not.connected.message"));
-    }
-
     @ShellMethod("Check your account journal")
+    @ShellMethodAvailability("accountCommandsAvailability")
     public void check() {
         try {
             List<AccountOperation> journal = this.accountService.getCurrentAccountJournal();
@@ -70,7 +66,7 @@ class AccountCommands {
         }
     }
 
-    Availability checkAvailability() {
+    public Availability accountCommandsAvailability() {
         return this.authenticationService.isConnected() ?
                 Availability.available() :
                 Availability.unavailable(messages.get("customer.not.connected.message"));
