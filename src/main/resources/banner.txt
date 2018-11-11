@@ -1,0 +1,23 @@
+
+                                                        WELCOME TO
+
+#
+#  b.             8 8 8888888888   `8.`8888.      ,8' 8888888 8888888888 8 888888888o          .8.          b.             8 8 8888     ,88'
+#  888o.          8 8 8888          `8.`8888.    ,8'        8 8888       8 8888    `88.       .888.         888o.          8 8 8888    ,88'
+#  Y88888o.       8 8 8888           `8.`8888.  ,8'         8 8888       8 8888     `88      :88888.        Y88888o.       8 8 8888   ,88'
+#  .`Y888888o.    8 8 8888            `8.`8888.,8'          8 8888       8 8888     ,88     . `88888.       .`Y888888o.    8 8 8888  ,88'
+#  8o. `Y888888o. 8 8 888888888888     `8.`88888'           8 8888       8 8888.   ,88'    .8. `88888.      8o. `Y888888o. 8 8 8888 ,88'
+#  8`Y8o. `Y88888o8 8 8888             .88.`8888.           8 8888       8 8888888888     .8`8. `88888.     8`Y8o. `Y88888o8 8 8888 88'
+#  8   `Y8o. `Y8888 8 8888            .8'`8.`8888.          8 8888       8 8888    `88.  .8' `8. `88888.    8   `Y8o. `Y8888 8 888888<
+#  8      `Y8o. `Y8 8 8888           .8'  `8.`8888.         8 8888       8 8888      88 .8'   `8. `88888.   8      `Y8o. `Y8 8 8888 `Y8.
+#  8         `Y8o.` 8 8888          .8'    `8.`8888.        8 8888       8 8888    ,88'.888888888. `88888.  8         `Y8o.` 8 8888   `Y8.
+#  8            `Yo 8 888888888888 .8'      `8.`8888.       8 8888       8 888888888P .8'       `8. `88888. 8            `Yo 8 8888     `Y8.
+
+Type help to show available commands : connect, deposit, withdraw, check and disconnect
+connect ==> To connect to your account, its syntax is > connect  username  password
+disconnect ==>  To disconnect from your account, its syntax is > disconnect
+deposit ==> To deposit an amount into your account, it's syntax is > deposit amount
+withdraw ==> to withdraw an amount from your account, it's syntax is > withdraw amount
+check ==> To check your account's balance and journal, it's syntax > check
+Type help command to show command syntax
+
