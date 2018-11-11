@@ -1,5 +1,6 @@
 package com.nextbank.cli.command;
 
+import com.nextbank.cli.domain.AccountOperation;
 import com.nextbank.cli.helper.ConsoleHelper;
 import com.nextbank.cli.helper.Messages;
 import com.nextbank.cli.service.AccountService;
@@ -9,6 +10,7 @@ import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @ShellComponent
 class AccountCommands {
@@ -53,6 +55,22 @@ class AccountCommands {
     }
 
     Availability withdrawAvailability() {
+        return this.authenticationService.isConnected() ?
+                Availability.available() :
+                Availability.unavailable(messages.get("customer.not.connected.message"));
+    }
+
+    @ShellMethod("Check your account journal")
+    public void check() {
+        try {
+            List<AccountOperation> journal = this.accountService.getCurrentAccountJournal();
+            console.write(journal);
+        } catch (IllegalStateException e) {
+            this.console.write(e.getMessage());
+        }
+    }
+
+    Availability checkAvailability() {
         return this.authenticationService.isConnected() ?
                 Availability.available() :
                 Availability.unavailable(messages.get("customer.not.connected.message"));

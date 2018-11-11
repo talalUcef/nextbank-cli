@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -72,6 +73,13 @@ public class AccountService {
 
         LOG.info("Withdraw of {} from account {}, its new balance is {}",
                 amount, account.getAccountNumber(), account.getBalance());
+    }
+
+    public List<AccountOperation> getCurrentAccountJournal() {
+
+        final Account currentAccount = this.getCurrentAccount();
+
+        return currentAccount.getJournal();
     }
 
     private Account getCurrentAccount() {
