@@ -49,6 +49,31 @@ public class AccountService {
                 amount, account.getAccountNumber(), account.getBalance());
     }
 
+    public void withdrawFromCurrentAccount(BigDecimal amount) {
+
+        this.validateOperationAmount(amount);
+
+        final Account account = this.getCurrentAccount();
+        BigDecimal newBalance = account.getBalance()
+                .subtract(amount).setScale(2, RoundingMode.HALF_EVEN);
+
+        if (newBalance.compareTo(BigDecimal.ZERO) < 0) {
+            LOG.debug("Unauthorised withdraw of {} from account {}",
+                    amount, account.getAccountNumber());
+            throw new IllegalStateException(this.messages.get("unauthorized.withdraw"));
+        }
+
+        final var debit = new AccountOperation(ids.incrementAndGet(),
+                new Date(), amount, newBalance, AccountOperationType.DEBIT);
+        LOG.info("Account {} has a new debit operation {}", account.getAccountNumber(), debit);
+        account.getJournal().add(debit);
+
+        account.setBalance(newBalance);
+
+        LOG.info("Withdraw of {} from account {}, its new balance is {}",
+                amount, account.getAccountNumber(), account.getBalance());
+    }
+
     private Account getCurrentAccount() {
 
         Account connectedCustomerAccount = null;

@@ -41,4 +41,20 @@ class AccountCommands {
                 Availability.available() :
                 Availability.unavailable(messages.get("customer.not.connected.message"));
     }
+
+    @ShellMethod("Withdraw money from your account")
+    public void withdraw(BigDecimal amount) {
+        try {
+            this.accountService.withdrawFromCurrentAccount(amount);
+            console.write(messages.get("withdraw.success"));
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            this.console.write(e.getMessage());
+        }
+    }
+
+    Availability withdrawAvailability() {
+        return this.authenticationService.isConnected() ?
+                Availability.available() :
+                Availability.unavailable(messages.get("customer.not.connected.message"));
+    }
 }
