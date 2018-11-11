@@ -1,6 +1,7 @@
 package com.nextbank.cli.helper;
 
 import com.nextbank.cli.domain.AccountOperation;
+import com.nextbank.cli.utils.OsUtils;
 import org.springframework.stereotype.Component;
 
 import java.io.PrintStream;
@@ -13,6 +14,7 @@ public class ConsoleHelper {
 
     private final static String ANSI_YELLOW = "\u001B[33m";
     private final static String ANSI_RESET = "\u001B[0m";
+    private final static boolean IS_WINDOWS_OS = OsUtils.isWindows();
     private static final SimpleDateFormat dateFormat =
             new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 
@@ -20,7 +22,7 @@ public class ConsoleHelper {
 
     public void write(List<AccountOperation> operations) {
         this.out.println("> ");
-        this.out.print(ANSI_YELLOW);
+        if(!IS_WINDOWS_OS) this.out.print(ANSI_YELLOW);
         this.out.println(" ---------------- ---------------------- ------------ ------------");
         this.out.println("| Operation type |          Date        |    Amount  |   Balance  |");
         this.out.println("|----------------|----------------------|------------|------------|");
@@ -30,15 +32,15 @@ public class ConsoleHelper {
             operations.forEach(operation -> this.out.println(this.print(operation)));
         }
         this.out.print(" ---------------- ---------------------- ------------ ------------");
-        this.out.print(ANSI_RESET);
+        if(!IS_WINDOWS_OS) this.out.print(ANSI_RESET);
         this.out.println();
     }
 
     public void write(String msg, String... args) {
         this.out.print("> ");
-        this.out.print(ANSI_YELLOW);
+        if(!IS_WINDOWS_OS) this.out.print(ANSI_YELLOW);
         this.out.printf(msg, (Object[]) args);
-        this.out.print(ANSI_RESET);
+        if(!IS_WINDOWS_OS) this.out.print(ANSI_RESET);
         this.out.println();
     }
 
