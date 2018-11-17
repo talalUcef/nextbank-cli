@@ -1,37 +1,41 @@
 package com.nextbank.cli.command;
 
+import com.nextbank.cli.console.ConsoleLog;
 import com.nextbank.cli.exception.BadCredentialsException;
-import com.nextbank.cli.helper.ConsoleHelper;
 import com.nextbank.cli.helper.Messages;
 import com.nextbank.cli.service.AuthenticationService;
 import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @ShellComponent
 class AuthenticationCommands {
 
-    private final ConsoleHelper console;
     private final AuthenticationService authenticationService;
     private final Messages messages;
 
-    AuthenticationCommands(ConsoleHelper console, AuthenticationService authenticationService,
+    AuthenticationCommands(AuthenticationService authenticationService,
                            Messages messages) {
-        this.console = console;
         this.authenticationService = authenticationService;
         this.messages = messages;
     }
 
     @ShellMethod("connect to your account")
-    public void connect(String u, String p) {
+    @ConsoleLog
+    public List<String> connect(String u, String p) {
+        final List<String> messages = new ArrayList<>();
         try {
             this.authenticationService.connect(u, p);
-            this.console.write(this.messages.get("customer.greeting", u));
-            this.console.write(this.messages.get("connection.success"));
-            this.console.write(this.messages.get("connected.available.commands"));
+            messages.add(this.messages.get("customer.greeting", u));
+            messages.add(this.messages.get("connection.success"));
+            messages.add(this.messages.get("connected.available.commands"));
         } catch (BadCredentialsException e) {
-            this.console.write(e.getMessage());
+            messages.add(e.getMessage());
         }
+        return messages;
     }
 
     Availability connectAvailability() {
@@ -41,9 +45,12 @@ class AuthenticationCommands {
     }
 
     @ShellMethod("disconnect from your account")
-    public void disconnect() {
+    @ConsoleLog
+    public List<String> disconnect() {
+        final List<String> messages = new ArrayList<>();
         String username = this.authenticationService.disconnect();
-        this.console.write(this.messages.get("customer.goodbye", username));
+        messages.add(this.messages.get("customer.goodbye", username));
+        return messages;
     }
 
     Availability disconnectAvailability() {

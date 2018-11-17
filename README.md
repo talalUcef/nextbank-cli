@@ -41,8 +41,3 @@ To deposit  money into the account use `deposit 500` for example
 To withdraw money from the account use `withdraw 200` 
 To list account's operations use `check` 
 To disconnect from Guido van Rossum account use `disconnect`
-
-# Encountered problems
-The spring shell project do not integrate very well with spring test, 
-that why for now the project do not have integration and unit tests, 
-they will be added future releases.
